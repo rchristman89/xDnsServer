@@ -1,0 +1,15 @@
+[ClassVersion("1.0.0.0"), FriendlyName("xDnsServerPrimaryZone")]
+class MSFT_xDnsServerPrimaryZone : OMI_BaseResource
+{
+    [Key, Description("DNS Server primary zone name.")] String Name;
+    [Write, Description("IP addresses of the master servers of the zone.")] String MasterServers;
+    [Write, Description("DNS Server primary zone file."), ValueMap{"Custom","Domain","Forest","Legacy"},Values{"Custom","Domain","Forest","Legacy"}] String ZoneFile;
+    [Write, Description("Partition to store an ActiveDirectory-integrated zone.")] String ReplicationScope;
+    [Write, Description("Network ID and prefix length for a reverse lookup zone.")] String NetworkID;
+    [Write, Description("Indicates that the server loads an existing file for the zone.")] Boolean LoadExisting;
+    [Write, Description("The directory partition to store the zone.")] Boolean DirectoryPartitionName;
+    [Write, Description("Name of the DnsServer to create the zone on.")] String DnsServer;
+    [Write, Description("Whether the DNS zone should be available or removed"), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+};
+
+
